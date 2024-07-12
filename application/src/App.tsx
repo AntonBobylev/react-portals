@@ -1,11 +1,9 @@
 import './App.css'
 
-function App() {
+export default function App() {
   return (
     <>
         <span>Welcome to the application frontend!</span>
     </>
   )
-}
-
-export default App
+};
