@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import {useEffect, useMemo, useState} from 'react';
 import {
     MaterialReactTable,
     useMaterialReactTable,
@@ -96,4 +96,40 @@ const PatientPortalGrid = () => {
     return <MaterialReactTable table={table} />;
 };
 
-export default PatientPortalGrid;
+export default function () {
+
+    const [serverData, setServerData] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetch("http://localhost:7000/getPatientPortal", {
+            method: "GET"
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                setLoading(false);
+                setServerData(data);
+                console.log(data);
+            })
+            .catch((error) => console.log(error));
+    }, []);
+
+    function getPatientPortalLayout()
+    {
+        return (
+            <>
+                <PatientPortalGrid />
+                <div>{serverData}</div>
+            </>
+        );
+    }
+
+    return (
+        <>
+            {loading
+                ? <div>Loading...</div>
+                : getPatientPortalLayout()
+            }
+        </>
+    );
+}
