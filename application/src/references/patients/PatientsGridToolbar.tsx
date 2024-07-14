@@ -3,11 +3,19 @@ import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
-export default function PatientsGridToolbar({onAdd, onEdit, onRemove})
+export default function PatientsGridToolbar({
+    onAdd,
+    addDisabled,
+    onEdit,
+    editDisabled,
+    onRemove,
+    removeDisabled
+})
 {
     return (
         <Toolbar>
             <IconButton
+                disabled={addDisabled}
                 size='small'
                 edge='start'
                 color='success'
@@ -19,6 +27,7 @@ export default function PatientsGridToolbar({onAdd, onEdit, onRemove})
             </IconButton>
 
             <IconButton
+                disabled={editDisabled}
                 size='small'
                 edge='start'
                 color='info'
@@ -30,6 +39,7 @@ export default function PatientsGridToolbar({onAdd, onEdit, onRemove})
             </IconButton>
 
             <IconButton
+                disabled={removeDisabled}
                 size='small'
                 edge='start'
                 color='error'

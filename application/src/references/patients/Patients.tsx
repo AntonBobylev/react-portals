@@ -6,6 +6,7 @@ import {PatientsGridRowModel} from "./PatientsGridRowModel.tsx";
 export default function Patients()
 {
     const [selectedRecords, setSelectedRecords] = useState<PatientsGridRowModel[]>([]);
+    const [isGridLoaded, setIsGridLoaded] = useState(false);
 
     function onPatientAdd(): void
     {
@@ -49,10 +50,15 @@ export default function Patients()
         <>
             <PatientsGridToolbar
                 onAdd={onPatientAdd}
+                addDisabled={!isGridLoaded}
                 onEdit={() => onPatientEdit(selectedRecords)}
+                editDisabled={!isGridLoaded}
                 onRemove={() => onPatientRemove(selectedRecords)}
+                removeDisabled={!isGridLoaded}
             />
-            <PatientsGrid onSelectionChanged={setSelectedRecords}/>
+            <PatientsGrid onSelectionChanged={setSelectedRecords}
+                          setIsGridLoaded={setIsGridLoaded}
+            />
         </>
     );
 }
