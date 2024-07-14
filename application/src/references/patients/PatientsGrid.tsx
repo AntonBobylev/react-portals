@@ -28,6 +28,10 @@ export default function ()
 
     const columns = useMemo<MRT_ColumnDef<PatientsGridRowModel>[]>(
         () => [{
+            accessorKey: 'patient_id',
+            header: 'ID',
+            size: 50
+        }, {
             accessorKey: 'patient_name.patient_last_name',
             header: 'Last Name',
             size: 150
@@ -36,12 +40,16 @@ export default function ()
             header: 'First Name',
             size: 150
         }, {
-            accessorKey: 'patient_dob',
-            header: 'Date of birth',
-            size: 100
+            accessorKey: 'patient_name.patient_middle_name',
+            header: 'Middle name',
+            size: 150
         }, {
             accessorKey: 'patient_gender',
             header: 'Gender',
+            size: 100
+        }, {
+            accessorKey: 'patient_dob',
+            header: 'Date of birth',
             size: 100
         }],
         [],

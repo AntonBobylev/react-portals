@@ -1,4 +1,5 @@
 export type PatientsGridRowModel = {
+    patient_id: number;
     patient_name: {
         patient_first_name: string;
         patient_last_name: string;
