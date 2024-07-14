@@ -22,3 +22,6 @@ If it didn't work you can see what port is used inside the docker application. S
 This is a backend of the current application.
 * create `.env.local` file in project root directory and configure some vary options:<br>
   * set `DATABASE_URL` variable to `DATABASE_URL="mysql://root:root@mysql:3306/react-portals?serverVersion=8.0.32&charset=utf8mb4"`
+* go to the docker `php-fpm` container and run the command: `./bin/console doctrine:migrations:migrate`<br>
+This is how the application applies all migrations.
+* That's it! Everything is configured. Enjoy!
