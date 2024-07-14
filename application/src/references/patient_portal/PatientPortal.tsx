@@ -1,4 +1,4 @@
-import PatientPortalGrid from "./PatientPortalGrid.tsx";
+import PatientPortalGrid from './PatientPortalGrid.tsx';
 
 export default function PatientPortal() {
     return (

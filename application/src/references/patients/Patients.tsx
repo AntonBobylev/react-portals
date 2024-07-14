@@ -1,7 +1,7 @@
-import PatientsGrid from "./PatientsGrid.tsx";
-import PatientsGridToolbar from "./PatientsGridToolbar.tsx";
-import {useState} from "react";
-import {PatientsGridRowModel} from "./PatientsGridRowModel.tsx";
+import PatientsGrid from './PatientsGrid.tsx';
+import PatientsGridToolbar from './PatientsGridToolbar.tsx';
+import {useState} from 'react';
+import {PatientsGridRowModel} from './PatientsGridRowModel.tsx';
 
 export default function Patients()
 {

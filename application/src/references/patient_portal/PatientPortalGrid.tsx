@@ -102,14 +102,13 @@ export default function () {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:7000/getPatientPortal", {
-            method: "GET"
+        fetch('http://localhost:7000/getPatientPortal', {
+            method: 'GET'
         })
             .then((response) => response.json())
             .then((data) => {
                 setLoading(false);
                 setServerData(data);
-                console.log(data);
             })
             .catch((error) => console.log(error));
     }, []);
