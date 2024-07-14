@@ -10,6 +10,7 @@ import Root from './routes/root.tsx';
 import ErrorPage from './error-page';
 
 import './index.css';
+import Patients from './references/patients/Patients.tsx';
 
 const router = createBrowserRouter([{
     path: '/',
@@ -18,6 +19,9 @@ const router = createBrowserRouter([{
     children: [{
         path: 'patient_portal',
         element: <PatientPortal/>
+    }, {
+        path: 'patients',
+        element: <Patients/>
     }]
 }]);
 
