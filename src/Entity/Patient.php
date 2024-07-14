@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Entity\Interfaces\EntityInterface;
 use App\Repository\PatientRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PatientRepository::class)]
 #[ORM\Table(name: "patients")]
-class Patient
+class Patient implements EntityInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
