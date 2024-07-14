@@ -27,7 +27,14 @@ class Patient
     #[ORM\Column(name: "patient_dob", type: Types::DATE_IMMUTABLE, nullable: true)]
     private ?\DateTimeImmutable $patientDob = null;
 
-    #[ORM\Column(name: "patient_gender", type: Types::SMALLINT, nullable: true)]
+    #[ORM\Column(
+        name: "patient_gender",
+        type: Types::SMALLINT,
+        nullable: true,
+        options: [
+            "comment" => "0 - female, 1 - male, NULL - not specified"
+        ]
+    )]
     private ?int $patientGender = null;
 
     public function getId(): ?int
