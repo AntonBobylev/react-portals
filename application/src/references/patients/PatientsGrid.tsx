@@ -1,8 +1,12 @@
 import {useEffect, useMemo, useState} from 'react';
-import {MaterialReactTable, MRT_ColumnDef, useMaterialReactTable} from 'material-react-table';
+import {
+    MaterialReactTable,
+    MRT_ColumnDef, MRT_Row,
+    useMaterialReactTable
+} from 'material-react-table';
 import {PatientsGridRowModel} from './PatientsGridRowModel.tsx';
 
-export default function ()
+export default function ({onSelectionChanged})
 {
     //data and fetching state
     const [data, setData] = useState<PatientsGridRowModel[]>([]);
@@ -56,10 +60,21 @@ export default function ()
     );
 
     const table = useMaterialReactTable({
-        enableRowSelection: true,
         columns,
-        data
+        data,
+        enableRowSelection: true
     });
+
+    useEffect(() => {
+        let selectedRows = table.getSelectedRowModel().rows,
+            selectedRecords = [];
+
+        selectedRows.forEach(function(row:MRT_Row<PatientsGridRowModel>) {
+            selectedRecords.push(row.original);
+        });
+
+        onSelectionChanged(selectedRecords);
+    }, [table.getState().rowSelection]);
 
     return <MaterialReactTable table={table} />;
 }
