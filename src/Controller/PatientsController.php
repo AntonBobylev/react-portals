@@ -16,16 +16,16 @@ class PatientsController extends AbstractController
         $patients = [[
             "patient_name" => [
                 "patient_first_name"  => "John",
-                "patient_last_name"   => 'Doe',
-                "patient_middle_name" => 'Bruce'
+                "patient_last_name"   => "Doe",
+                "patient_middle_name" => "Bruce"
             ],
             "patient_dob"    => "2000-07-14",
             "patient_gender" => "male"
         ], [
             "patient_name" => [
                 "patient_first_name"  => "Jane",
-                "patient_last_name"   => 'Doe',
-                "patient_middle_name" => 'Debora'
+                "patient_last_name"   => "Doe",
+                "patient_middle_name" => "Debora"
             ],
             "patient_dob"    => "2002-03-31",
             "patient_gender" => "female"
