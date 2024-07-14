@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\DataMappers\PatientDM;
 use App\Repository\PatientRepository;
-use App\Utils\XFormat;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
@@ -17,16 +17,7 @@ class PatientsController extends AbstractController
 
         $result = [];
         foreach ($patients as $patient) {
-            $result[] = [
-                "patient_id"     => $patient->getId(),
-                "patient_name"   => [
-                    "patient_first_name"  => $patient->getPatientFirstName(),
-                    "patient_last_name"   => $patient->getPatientLastName(),
-                    "patient_middle_name" => $patient->getPatientMiddleName(),
-                ],
-                "patient_dob"    => XFormat::dateShort($patient->getPatientDob()),
-                "patient_gender" => XFormat::genderFullName($patient->getPatientGender())
-            ];
+            $result[] = (new PatientDM())->entityAsArray($patient);
         }
 
         return $this->json([
