@@ -23,6 +23,8 @@ class XFormat
     }
 
     /**
+     * @TODO: Make a translations of format
+     *
      * @param DateTimeImmutable|null|string $date
      * @return string
      */
@@ -32,6 +34,6 @@ class XFormat
             return "";
         }
 
-        return $date->format("Y-m-d");
+        return $date->format("m/d/Y");
     }
 }
