@@ -20,3 +20,5 @@ That's it! This is a client of the current application.
 * now go to http://localhost:7000/ <br>
 If it didn't work you can see what port is used inside the docker application. See `webserver-1`<br>
 This is a backend of the current application.
+* create `.env.local` file in project root directory and configure some vary options:<br>
+  * set `DATABASE_URL` variable to `DATABASE_URL="mysql://root:root@mysql:3306/react-portals?serverVersion=8.0.32&charset=utf8mb4"`
