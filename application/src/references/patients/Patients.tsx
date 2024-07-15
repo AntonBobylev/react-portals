@@ -1,11 +1,11 @@
 import PatientsGrid from './PatientsGrid.tsx';
-import PatientsGridToolbar from './PatientsGridToolbar.tsx';
+import PatientsGridToolbar from './PatientsGridToolbar/PatientsGridToolbar.tsx';
 import {useState} from 'react';
-import {PatientsGridRowModel} from './PatientsGridRowModel.tsx';
+import {Patient} from '../../types/Patient.tsx';
 
 export default function Patients()
 {
-    const [selectedRecords, setSelectedRecords] = useState<PatientsGridRowModel[]>([]);
+    const [selectedRecords, setSelectedRecords] = useState<Patient[]>([]);
     const [isGridLoaded, setIsGridLoaded] = useState(false);
     const [gridShouldBeUpdated, setGridShouldBeUpdated] = useState(true);
 
@@ -46,7 +46,7 @@ export default function Patients()
             return;
         }
 
-        let idsToRemove = selectedRecords.map(function(record:PatientsGridRowModel) {
+        let idsToRemove = selectedRecords.map(function(record:Patient) {
             return record.patient_id;
         });
 

@@ -1,4 +1,4 @@
-export type PatientsGridRowModel = {
+export type Patient = {
     patient_id: number;
     patient_name: {
         patient_first_name: string;

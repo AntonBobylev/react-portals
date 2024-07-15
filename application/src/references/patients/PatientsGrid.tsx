@@ -4,12 +4,12 @@ import {
     MRT_ColumnDef, MRT_Row,
     useMaterialReactTable
 } from 'material-react-table';
-import {PatientsGridRowModel} from './PatientsGridRowModel.tsx';
+import {Patient} from '../../types/Patient.tsx';
 
 export default function ({onSelectionChanged, setIsGridLoaded, gridShouldBeUpdated, setGridShouldBeUpdated})
 {
     //data and fetching state
-    const [data, setData] = useState<PatientsGridRowModel[]>([]);
+    const [data, setData] = useState<Patient[]>([]);
     const [total, setTotal] = useState(0); // todo: remove if this is useless
     const [loading, setLoading] = useState(true);
 
@@ -44,7 +44,7 @@ export default function ({onSelectionChanged, setIsGridLoaded, gridShouldBeUpdat
         refreshGrid();
     }, [gridShouldBeUpdated]);
 
-    const columns = useMemo<MRT_ColumnDef<PatientsGridRowModel>[]>(
+    const columns = useMemo<MRT_ColumnDef<Patient>[]>(
         () => [{
             accessorKey: 'patient_id',
             header: 'ID',
@@ -86,7 +86,7 @@ export default function ({onSelectionChanged, setIsGridLoaded, gridShouldBeUpdat
         let selectedRows = table.getSelectedRowModel().rows,
             selectedRecords = [];
 
-        selectedRows.forEach(function(row:MRT_Row<PatientsGridRowModel>) {
+        selectedRows.forEach(function(row:MRT_Row<Patient>) {
             selectedRecords.push(row.original);
         });
 
