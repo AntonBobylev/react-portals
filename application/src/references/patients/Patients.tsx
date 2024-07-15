@@ -7,6 +7,13 @@ export default function Patients()
 {
     const [selectedRecords, setSelectedRecords] = useState<PatientsGridRowModel[]>([]);
     const [isGridLoaded, setIsGridLoaded] = useState(false);
+    const [gridShouldBeUpdated, setGridShouldBeUpdated] = useState(true);
+
+    function onRefresh(): void
+    {
+        setIsGridLoaded(false);
+        setGridShouldBeUpdated(true);
+    }
 
     function onPatientAdd(): void
     {
@@ -49,6 +56,8 @@ export default function Patients()
     return (
         <>
             <PatientsGridToolbar
+                onRefresh={onRefresh}
+                refreshDisabled={!isGridLoaded}
                 onAdd={onPatientAdd}
                 addDisabled={!isGridLoaded}
                 onEdit={() => onPatientEdit(selectedRecords)}
@@ -58,6 +67,8 @@ export default function Patients()
             />
             <PatientsGrid onSelectionChanged={setSelectedRecords}
                           setIsGridLoaded={setIsGridLoaded}
+                          gridShouldBeUpdated={gridShouldBeUpdated}
+                          setGridShouldBeUpdated={setGridShouldBeUpdated}
             />
         </>
     );
