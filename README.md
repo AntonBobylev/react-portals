@@ -11,6 +11,7 @@
 # Install
 
 * run the command in the project root directory: `docker compose up`
+* go to the `php-fpm` container and run `composer install`
 * go to the `application` directory and run the command: `npm install`
 * inside the `application` directory run the command: `npm run dev`<br>
 There will be url of the of project, go to this url in your browser.<br>
